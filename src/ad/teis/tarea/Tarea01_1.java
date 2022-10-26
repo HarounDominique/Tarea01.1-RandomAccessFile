@@ -6,7 +6,8 @@ package ad.teis.tarea;
 
 import ad.teis.model.Persona;
 import ad.teis.persistencia.RandomAccessPersistencia;
-import java.io.IOException;
+
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -26,6 +27,17 @@ public class Tarea01_1 {
 
     private static void cribarBorrados() {
        //implementa el método
+        File file = new File(PERSONAS_FILE);
+
+        if(file.exists()){
+
+            try (RandomAccessFile raf = new RandomAccessFile(file, "rw")){
+                //raf.seek();
+                System.out.println("Hi there");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
       
     }
 
